@@ -17,7 +17,7 @@ import Reservation from './pages/Reservation'
 import Contact from './pages/Contact'
 import './styles/variables.css'
 import './styles/global.css'
-import './styles/pages.css'
+import './styles/pages.css' 
 
 function AnimatedRoutes() {
   const location = useLocation()
