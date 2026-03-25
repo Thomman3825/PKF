@@ -1,8 +1,17 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta http-equiv="refresh" content="0;url=/PKF/">
     <meta charset="UTF-8" />
+    <script>
+      // Handle GitHub Pages SPA redirect
+      (function() {
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect !== location.href) {
+          history.replaceState(null, null, redirect);
+        }
+      })();
+    </script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Philipkutty's Farm — a family-run boutique homestay on a private farm island in the Kerala backwaters, India." />
