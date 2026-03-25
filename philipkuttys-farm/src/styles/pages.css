@@ -1,0 +1,78 @@
+/* Scroll reveal animation */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.scroll-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Page layout utilities */
+.page-section {
+  padding: var(--space-lg) var(--space-md);
+}
+
+.page-section--xl {
+  padding: var(--space-xl) var(--space-md);
+}
+
+.page-body {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.page-body p {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: var(--color-text);
+  margin-bottom: 1.5rem;
+}
+
+/* Activity / Tips section headings */
+.section-subheading {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-style: italic;
+  color: var(--color-forest);
+  margin-bottom: 0.5rem;
+  font-weight: 400;
+}
+
+/* Two-column contact layout */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+  max-width: 1100px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page-section,
+  .page-section--xl {
+    padding: var(--space-md) var(--space-sm);
+  }
+}
+
+/* Reviews grid responsive fix */
+@media (max-width: 600px) {
+  .reviews-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Distances grid responsive */
+@media (max-width: 600px) {
+  .distances-grid {
+    grid-template-columns: 1fr !important;
+  }
+}

@@ -1,0 +1,227 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: background var(--transition), box-shadow var(--transition);
+  padding: 0;
+}
+
+.navbar.scrolled {
+  background: var(--color-forest);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+.navbar.transparent {
+  background: transparent;
+}
+
+.navbar-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--space-xs) 0;
+}
+
+.navbar-top {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 6px var(--space-md);
+  gap: var(--space-sm);
+}
+
+.navbar-top a {
+  color: rgba(255, 255, 255, 0.85);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.navbar-top a:hover,
+.navbar-top a.active {
+  color: var(--color-gold);
+}
+
+.navbar-top a.active {
+  border-bottom: 1px solid var(--color-gold);
+  padding-bottom: 1px;
+}
+
+.navbar-logo {
+  text-align: center;
+  padding: var(--space-xs) 0;
+}
+
+.navbar-logo a {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-style: italic;
+  color: white;
+  letter-spacing: 0.04em;
+  transition: color var(--transition);
+}
+
+.navbar-logo a:hover {
+  color: var(--color-gold);
+}
+
+.navbar-logo .logo-tagline {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-water);
+  display: block;
+  margin-top: 2px;
+}
+
+.navbar-bottom {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  padding: 6px var(--space-md);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar-bottom a {
+  color: rgba(255, 255, 255, 0.85);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color var(--transition);
+  padding: 4px 8px;
+}
+
+.navbar-bottom a:hover,
+.navbar-bottom a.active {
+  color: var(--color-gold);
+}
+
+.navbar-bottom a.active {
+  border-bottom: 1px solid var(--color-gold);
+}
+
+/* Hamburger */
+.navbar-hamburger {
+  display: none;
+  position: absolute;
+  right: var(--space-md);
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 1100;
+}
+
+.navbar-hamburger span {
+  display: block;
+  width: 26px;
+  height: 2px;
+  background: white;
+  margin: 5px 0;
+  transition: var(--transition);
+}
+
+.navbar-hamburger.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.navbar-hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar-hamburger.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Mobile overlay */
+.navbar-mobile-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: var(--color-forest);
+  z-index: 1050;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  padding: var(--space-lg) var(--space-md);
+  overflow-y: auto;
+}
+
+.navbar-mobile-overlay.open {
+  display: flex;
+}
+
+.navbar-mobile-overlay a {
+  color: white;
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-style: italic;
+  letter-spacing: 0.04em;
+  transition: color var(--transition);
+  text-align: center;
+}
+
+.navbar-mobile-overlay a:hover,
+.navbar-mobile-overlay a.active {
+  color: var(--color-gold);
+}
+
+.navbar-mobile-overlay .mobile-divider {
+  width: 40px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: var(--space-xs) auto;
+}
+
+.instagram-icon {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .navbar-top,
+  .navbar-bottom,
+  .navbar-logo .logo-tagline {
+    display: none;
+  }
+
+  .navbar-inner {
+    flex-direction: row;
+    justify-content: center;
+    padding: var(--space-sm) var(--space-md);
+    position: relative;
+  }
+
+  .navbar-logo {
+    padding: 0;
+  }
+
+  .navbar-logo a {
+    font-size: 1.3rem;
+  }
+
+  .navbar-hamburger {
+    display: block;
+  }
+
+  .navbar.scrolled .navbar-inner,
+  .navbar-inner {
+    background: transparent;
+  }
+}
