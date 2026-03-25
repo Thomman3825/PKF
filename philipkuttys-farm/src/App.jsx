@@ -19,12 +19,13 @@ import './styles/variables.css'
 import './styles/global.css'
 import './styles/pages.css' 
 
-function AnimatedRoutes() {
+function AnimatedRoutes() { 
   const location = useLocation()
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Home />} />
+        <Route path="/pkf" element={<Home />} />
         <Route path="/kerala-backwaters" element={<Kerala />} />
         <Route path="/host" element={<Host />} />
         <Route path="/farm" element={<Farm />} />
