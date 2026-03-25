@@ -3,6 +3,6 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/philipkuttys-farm/',
+  base: '/PKF/',
   build: { outDir: 'dist' }
 })
