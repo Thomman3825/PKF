@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form'
 import '../styles/forms.css'
 
 export default function ContactForm() {
-  const [status, setStatus] = useState('idle') // idle | loading | success | error
+  const [status, setStatus] = useState('idle')
 
   const {
     register,
@@ -12,28 +12,14 @@ export default function ContactForm() {
     formState: { errors },
   } = useForm()
 
-  const onSubmit = async (data) => {
-    setStatus('loading')
-    try {
-      const res = await fetch(
-        (import.meta.env.VITE_API_URL || 'https://api.philipkuttysfarm.com') + '/contact',
-        {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            name: data.name,
-            email: data.email,
-            phone: data.phone,
-            message: data.message,
-          }),
-        }
-      )
-      if (!res.ok) throw new Error('Server error')
-      setStatus('success')
-      reset()
-    } catch {
-      setStatus('error')
-    }
+  const onSubmit = (data) => {
+    const subject = encodeURIComponent(`Message from ${data.name}`)
+    const body = encodeURIComponent(
+      `Name: ${data.name}\nEmail: ${data.email}${data.phone ? `\nPhone: ${data.phone}` : ''}\n\n${data.message}`
+    )
+    window.location.href = `mailto:mail@philipkuttysfarm.com?subject=${subject}&body=${body}`
+    setStatus('success')
+    reset()
   }
 
   if (status === 'success') {
@@ -95,18 +81,8 @@ export default function ContactForm() {
         {errors.message && <span className="field-error">{errors.message.message}</span>}
       </div>
 
-      {status === 'error' && (
-        <div className="form-status-error">
-          Something went wrong. Please email us directly at{' '}
-          <a href="mailto:philipkuttysfarm@gmail.com" style={{ textDecoration: 'underline' }}>
-            philipkuttysfarm@gmail.com
-          </a>
-        </div>
-      )}
-
-      <button type="submit" className="form-submit-btn" disabled={status === 'loading'}>
-        {status === 'loading' && <span className="form-spinner" />}
-        {status === 'loading' ? 'Sending...' : 'Send Message'}
+      <button type="submit" className="form-submit-btn">
+        Send Message
       </button>
     </form>
   )
