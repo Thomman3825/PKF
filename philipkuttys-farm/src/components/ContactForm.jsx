@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
+import emailjs from '@emailjs/browser'
 import '../styles/forms.css'
 
 export default function ContactForm() {
@@ -12,14 +13,25 @@ export default function ContactForm() {
     formState: { errors },
   } = useForm()
 
-  const onSubmit = (data) => {
-    const subject = encodeURIComponent(`Message from ${data.name}`)
-    const body = encodeURIComponent(
-      `Name: ${data.name}\nEmail: ${data.email}${data.phone ? `\nPhone: ${data.phone}` : ''}\n\n${data.message}`
-    )
-    window.location.href = `mailto:tkurian2@gmail.com?subject=${subject}&body=${body}`
-    setStatus('success')
-    reset()
+  const onSubmit = async (data) => {
+    setStatus('loading')
+    try {
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_CONTACT,
+        {
+          from_name: data.name,
+          from_email: data.email,
+          phone: data.phone || 'Not provided',
+          message: data.message,
+        },
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      )
+      setStatus('success')
+      reset()
+    } catch {
+      setStatus('error')
+    }
   }
 
   if (status === 'success') {
@@ -81,8 +93,18 @@ export default function ContactForm() {
         {errors.message && <span className="field-error">{errors.message.message}</span>}
       </div>
 
-      <button type="submit" className="form-submit-btn">
-        Send Message
+      {status === 'error' && (
+        <div className="form-status-error">
+          Something went wrong. Please email us directly at{' '}
+          <a href="mailto:mail@philipkuttysfarm.com" style={{ textDecoration: 'underline' }}>
+            mail@philipkuttysfarm.com
+          </a>
+        </div>
+      )}
+
+      <button type="submit" className="form-submit-btn" disabled={status === 'loading'}>
+        {status === 'loading' && <span className="form-spinner" />}
+        {status === 'loading' ? 'Sending...' : 'Send Message'}
       </button>
     </form>
   )

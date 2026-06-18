@@ -15,6 +15,7 @@ import Retreat from './pages/Retreat'
 import Reviews from './pages/Reviews'
 import Reservation from './pages/Reservation'
 import Contact from './pages/Contact'
+import ScrollToTop from './components/ScrollToTop'
 import './styles/variables.css'
 import './styles/global.css'
 import './styles/pages.css' 
@@ -25,7 +26,6 @@ function AnimatedRoutes() {
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Home />} />
-        <Route path="/PKF" element={<Home />} />
         <Route path="/kerala-backwaters" element={<Kerala />} />
         <Route path="/host" element={<Host />} />
         <Route path="/farm" element={<Farm />} />
@@ -46,6 +46,7 @@ function AnimatedRoutes() {
 export default function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Navbar />
       <main>
         <AnimatedRoutes />

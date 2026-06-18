@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { motion } from 'framer-motion'
+import emailjs from '@emailjs/browser'
 import PageHero from '../components/PageHero'
 import BookingCTA from '../components/BookingCTA'
 import ScrollReveal from '../components/ScrollReveal'
@@ -22,15 +23,21 @@ export default function Reservation() {
   const onSubmit = async (data) => {
     setStatus('loading')
     try {
-      const res = await fetch(
-        (import.meta.env.VITE_API_URL || 'https://api.philipkuttysfarm.com') + '/reservation',
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_RESERVATION,
         {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data),
-        }
+          from_name: data.name,
+          from_email: data.email,
+          phone: data.phone || 'Not provided',
+          arrival_date: data.arrivalDate,
+          departure_date: data.departureDate,
+          guests: data.guests,
+          villa: data.villa,
+          special_requests: data.specialRequests || 'None',
+        },
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       )
-      if (!res.ok) throw new Error('Server error')
       setStatus('success')
       reset()
     } catch {

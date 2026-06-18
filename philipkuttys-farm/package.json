@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://thomman3825.github.io/PKF",
+  "homepage": "https://philipkuttysfarm.com",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -13,6 +13,7 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "framer-motion": "^12.38.0",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
