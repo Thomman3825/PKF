@@ -45,7 +45,7 @@ function AnimatedRoutes() {
 
 export default function App() {
   return (
-    <BrowserRouter basename="/PKF">
+    <BrowserRouter>
       <ScrollToTop />
       <Navbar />
       <main>

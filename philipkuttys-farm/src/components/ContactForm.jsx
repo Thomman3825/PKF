@@ -1,10 +1,14 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
+import ReCAPTCHA from 'react-google-recaptcha'
 import emailjs from '@emailjs/browser'
 import '../styles/forms.css'
 
 export default function ContactForm() {
   const [status, setStatus] = useState('idle')
+  const [captchaToken, setCaptchaToken] = useState(null)
+  const [captchaError, setCaptchaError] = useState(false)
+  const captchaRef = useRef(null)
 
   const {
     register,
@@ -14,6 +18,11 @@ export default function ContactForm() {
   } = useForm()
 
   const onSubmit = async (data) => {
+    if (!captchaToken) {
+      setCaptchaError(true)
+      return
+    }
+    setCaptchaError(false)
     setStatus('loading')
     try {
       await emailjs.send(
@@ -24,6 +33,7 @@ export default function ContactForm() {
           from_email: data.email,
           phone: data.phone || 'Not provided',
           message: data.message,
+          'g-recaptcha-response': captchaToken,
         },
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       )
@@ -31,6 +41,9 @@ export default function ContactForm() {
       reset()
     } catch {
       setStatus('error')
+    } finally {
+      captchaRef.current?.reset()
+      setCaptchaToken(null)
     }
   }
 
@@ -91,6 +104,19 @@ export default function ContactForm() {
           {...register('message', { required: 'Message is required' })}
         />
         {errors.message && <span className="field-error">{errors.message.message}</span>}
+      </div>
+
+      <div className="form-recaptcha">
+        <ReCAPTCHA
+          ref={captchaRef}
+          sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
+          onChange={(token) => {
+            setCaptchaToken(token)
+            if (token) setCaptchaError(false)
+          }}
+          onExpired={() => setCaptchaToken(null)}
+        />
+        {captchaError && <span className="field-error">Please confirm you're not a robot</span>}
       </div>
 
       {status === 'error' && (

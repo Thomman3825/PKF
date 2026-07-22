@@ -62,6 +62,10 @@
   margin-top: 4px;
 }
 
+.form-recaptcha {
+  margin-bottom: 28px;
+}
+
 .form-submit-btn {
   display: inline-block;
   border: 1px solid var(--color-forest);

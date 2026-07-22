@@ -170,7 +170,8 @@ If you have specific requirements — dietary, spatial, or otherwise — please 
   reservation: {
     heroTitle: "Reserve Your Stay",
     intro: "We would be delighted to welcome you to Philipkutty's Farm. Please fill in the form below and we will get back to you as soon as possible to confirm availability and rates.",
-    villaOptions: ["No preference", "Mandharam", "Ashokam", "Chempakam", "Tharavadu", "Madatha", "Family Cottage", "Kuyil & Ponmaan"]
+    airportPickupOptions: ["Yes", "No"],
+    modeOfArrivalOptions: ["By Air", "By Train", "By Road"]
   },
   contact: {
     heroTitle: "Contact Us",
