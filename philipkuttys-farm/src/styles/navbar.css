@@ -73,6 +73,22 @@
   color: var(--color-gold);
 }
 
+.navbar-logo-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.navbar-logo-img {
+  height: 40px;
+  width: auto;
+  transition: opacity var(--transition);
+}
+
+.navbar-logo-link:hover .navbar-logo-img {
+  opacity: 0.85;
+}
+
 .navbar-logo .logo-tagline {
   font-family: var(--font-body);
   font-size: 0.65rem;
@@ -214,6 +230,10 @@
 
   .navbar-logo a {
     font-size: 1.3rem;
+  }
+
+  .navbar-logo-img {
+    height: 32px;
   }
 
   .navbar-hamburger {

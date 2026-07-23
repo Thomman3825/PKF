@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
+import logo from '../assets/logo.png'
 import '../styles/navbar.css'
 
 const topLinks = [
@@ -75,8 +76,9 @@ export default function Navbar() {
           </div>
 
           <div className="navbar-logo">
-            <NavLink to="/" onClick={closeMenu}>
-              Philipkutty's Farm
+            <NavLink to="/" onClick={closeMenu} className="navbar-logo-link">
+              <img src={logo} alt="" className="navbar-logo-img" />
+              <span>Philipkutty's Farm</span>
             </NavLink>
             <span className="logo-tagline">Kerala Backwaters Homestay</span>
           </div>
