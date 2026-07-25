@@ -32,7 +32,7 @@ export default function Activities() {
     >
       <PageHero
         title={activities.heroTitle}
-        imageSrc={images.homeGallery[2].src}
+        imageSrc={images.pageHeroes.activities}
       />
 
       <section style={{ padding: 'var(--space-lg) var(--space-md)' }}>

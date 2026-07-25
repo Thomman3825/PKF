@@ -5,6 +5,7 @@ import '../styles/hero.css'
 
 export default function HeroSection({ imageSrc, title, subtitle, ctaText, ctaLink }) {
   const imgRef = useRef(null)
+  const sectionRef = useRef(null)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,8 +18,15 @@ export default function HeroSection({ imageSrc, title, subtitle, ctaText, ctaLin
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  const scrollToNext = () => {
+    const el = sectionRef.current
+    if (!el) return
+    const bottom = el.getBoundingClientRect().bottom + window.scrollY
+    window.scrollTo({ top: bottom, behavior: 'smooth' })
+  }
+
   return (
-    <section className="hero">
+    <section className="hero" ref={sectionRef}>
       <img
         ref={imgRef}
         src={imageSrc}
@@ -57,6 +65,12 @@ export default function HeroSection({ imageSrc, title, subtitle, ctaText, ctaLin
           </motion.div>
         )}
       </div>
+      <button className="scroll-cue" onClick={scrollToNext} aria-label="Scroll down">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 4v14" />
+          <path d="M5 12l7 7 7-7" />
+        </svg>
+      </button>
     </section>
   )
 }

@@ -17,7 +17,8 @@ export default function Food() {
     >
       <PageHero
         title={food.heroTitle}
-        imageSrc={images.homeGallery[7].src}
+        imageSrc={images.pageHeroes.food}
+        imgPosition="center 40%"
       />
 
       <section style={{ padding: 'var(--space-lg) var(--space-md)' }}>

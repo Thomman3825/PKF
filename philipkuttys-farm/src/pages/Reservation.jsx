@@ -80,6 +80,7 @@ export default function Reservation() {
       <PageHero
         title={reservation.heroTitle}
         imageSrc={images.homeGallery[4].src}
+        imgPosition="center 63%"
       />
 
       <section style={{ padding: 'var(--space-lg) var(--space-md)' }}>
@@ -248,7 +249,7 @@ export default function Reservation() {
                     id="res-children-6-12"
                     type="number"
                     min={0}
-                    placeholder="Children (Age 6-12)"
+                    placeholder="0"
                     {...register('childrenAge6to12', {
                       required: 'Required',
                       min: { value: 0, message: 'Min 0' },
@@ -263,7 +264,7 @@ export default function Reservation() {
                     id="res-children-below-6"
                     type="number"
                     min={0}
-                    placeholder="Children (Below 6)"
+                    placeholder="0"
                     {...register('childrenBelow6', {
                       required: 'Required',
                       min: { value: 0, message: 'Min 0' },

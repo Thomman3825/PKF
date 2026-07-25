@@ -41,7 +41,7 @@ export default function Tips() {
     >
       <PageHero
         title={tips.heroTitle}
-        imageSrc={images.homeGallery[2].src}
+        imageSrc={images.pageHeroes.tips}
       />
 
       <section style={{ padding: 'var(--space-lg) var(--space-md)' }}>

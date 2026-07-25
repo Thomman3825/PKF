@@ -65,7 +65,8 @@ export default function Reviews() {
     >
       <PageHero
         title={reviews.heroTitle}
-        imageSrc={images.homeGallery[0].src}
+        imageSrc={images.pageHeroes.reviews}
+        imgPosition="35% 40%"
       />
 
       <section style={{ padding: 'var(--space-lg) var(--space-md)' }}>
@@ -88,7 +89,7 @@ export default function Reviews() {
           maxWidth: '1100px',
           margin: '0 auto',
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(460px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fill, minmax(min(460px, 100%), 1fr))',
           gap: 'var(--space-md)',
           alignItems: 'start',
         }}>

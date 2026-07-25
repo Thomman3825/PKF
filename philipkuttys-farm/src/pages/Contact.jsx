@@ -18,7 +18,7 @@ export default function Contact() {
     >
       <PageHero
         title={contact.heroTitle}
-        imageSrc={images.homeGallery[1].src}
+        imageSrc={images.pageHeroes.contact}
       />
 
       <section style={{ padding: 'var(--space-lg) var(--space-md)' }}>
@@ -26,7 +26,7 @@ export default function Contact() {
           maxWidth: '1100px',
           margin: '0 auto',
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(300px, 100%), 1fr))',
           gap: 'var(--space-lg)',
           alignItems: 'start',
         }}>

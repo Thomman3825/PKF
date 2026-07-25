@@ -17,7 +17,7 @@ export default function Kerala() {
     >
       <PageHero
         title={kerala.heroTitle}
-        imageSrc={images.homeGallery[2].src}
+        imageSrc={images.pageHeroes.kerala}
       />
 
       <section style={{ padding: 'var(--space-lg) var(--space-md)' }}>

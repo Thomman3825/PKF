@@ -6,6 +6,7 @@
 .form-field {
   margin-bottom: 28px;
   position: relative;
+  min-width: 0;
 }
 
 .form-field label {
@@ -64,6 +65,19 @@
 
 .form-recaptcha {
   margin-bottom: 28px;
+}
+
+/* Google's reCAPTCHA widget is a fixed 304px wide and doesn't resize itself,
+   so it overflows narrow phone screens unless scaled down here. */
+@media (max-width: 400px) {
+  .form-recaptcha > div {
+    transform: scale(0.82);
+    transform-origin: left top;
+  }
+
+  .form-recaptcha {
+    margin-bottom: 14px;
+  }
 }
 
 .form-submit-btn {

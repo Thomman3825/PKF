@@ -18,7 +18,7 @@ export default function Farm() {
     >
       <PageHero
         title={farm.heroTitle}
-        imageSrc={images.homeGallery[0].src}
+        imageSrc={images.pageHeroes.farm}
       />
 
       <section style={{ padding: 'var(--space-lg) var(--space-md)' }}>

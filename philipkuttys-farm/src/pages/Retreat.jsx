@@ -17,7 +17,8 @@ export default function Retreat() {
     >
       <PageHero
         title={retreat.heroTitle}
-        imageSrc={images.homeGallery[1].src}
+        imageSrc={images.pageHeroes.retreat}
+        imgPosition="center 60%"
       />
 
       <section style={{ padding: 'var(--space-lg) var(--space-md)' }}>

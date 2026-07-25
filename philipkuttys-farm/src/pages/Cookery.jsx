@@ -17,7 +17,7 @@ export default function Cookery() {
     >
       <PageHero
         title={cookery.heroTitle}
-        imageSrc={images.homeGallery[7].src}
+        imageSrc={images.pageHeroes.cookery}
       />
 
       <section style={{ padding: 'var(--space-lg) var(--space-md)' }}>
