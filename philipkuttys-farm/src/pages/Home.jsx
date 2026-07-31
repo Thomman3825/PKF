@@ -114,7 +114,7 @@ export default function Home() {
                 loading="lazy"
                 allowFullScreen
                 referrerPolicy="no-referrer-when-downgrade"
-                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15726.123456!2d76.3870!3d9.5916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed?origin=mfe&pb=!1m3!3m2!1m1!4s2778147959152513358"
               />
             </div>
           </div>
