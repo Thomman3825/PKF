@@ -176,8 +176,8 @@ If you have specific requirements — dietary, spatial, or otherwise — please 
   contact: {
     heroTitle: "Contact Us",
     address: "Philipkutty's Farm, Ambika Market P.O., Vechoor, Kottayam District, Kerala, India — 686144",
-    phone: "+91 4829 272 558",
-    mobile: "+91 94471 72 558",
+    // phone: "+91 4829 272 558",
+    mobile: "+91 94464 65130",
     email: "mail@philipkuttysfarm.com",
     instagram: "https://www.instagram.com/philipkuttysfarm/"
   },

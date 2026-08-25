@@ -359,8 +359,8 @@ export default function Reservation() {
               {status === 'error' && (
                 <div className="form-status-error">
                   Something went wrong. Please email us directly at{' '}
-                  <a href="mailto:philipkuttysfarm@gmail.com" style={{ textDecoration: 'underline' }}>
-                    philipkuttysfarm@gmail.com
+                  <a href="mailto:mail@philipkuttysfarm.com" style={{ textDecoration: 'underline' }}>
+                    mail@philipkuttysfarm.com
                   </a>
                 </div>
               )}

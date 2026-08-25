@@ -135,21 +135,21 @@ export default function Footer() {
             <p style={{ fontSize: '0.85rem', color: 'rgba(245,240,232,0.7)', lineHeight: 1.6 }}>
               {content.contact.address}
             </p>
-            <a
+            {/* <a
               href={`tel:${content.contact.phone}`}
               style={{ fontSize: '0.85rem', color: 'rgba(245,240,232,0.7)', transition: 'color var(--transition)' }}
               onMouseEnter={e => e.target.style.color = 'var(--color-gold)'}
               onMouseLeave={e => e.target.style.color = 'rgba(245,240,232,0.7)'}
             >
               Tel: {content.contact.phone}
-            </a>
+            </a> */}
             <a
               href={`tel:${content.contact.mobile}`}
               style={{ fontSize: '0.85rem', color: 'rgba(245,240,232,0.7)', transition: 'color var(--transition)' }}
               onMouseEnter={e => e.target.style.color = 'var(--color-gold)'}
               onMouseLeave={e => e.target.style.color = 'rgba(245,240,232,0.7)'}
             >
-              Mobile: {content.contact.mobile}
+              Phone: {content.contact.mobile}
             </a>
             <a
               href={`mailto:${content.contact.email}`}

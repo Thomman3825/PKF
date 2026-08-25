@@ -73,9 +73,9 @@ export default function Contact() {
                   }}>
                     Phone
                   </p>
-                  <a href={`tel:${contact.phone}`} style={{ fontSize: '0.95rem', color: 'var(--color-text)', display: 'block', marginBottom: '4px' }}>
+                  {/* <a href={`tel:${contact.phone}`} style={{ fontSize: '0.95rem', color: 'var(--color-text)', display: 'block', marginBottom: '4px' }}>
                     {contact.phone}
-                  </a>
+                  </a> */}
                   <a href={`tel:${contact.mobile}`} style={{ fontSize: '0.95rem', color: 'var(--color-text)', display: 'block' }}>
                     {contact.mobile}
                   </a>
